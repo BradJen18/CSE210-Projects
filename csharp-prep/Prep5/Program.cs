@@ -9,8 +9,8 @@ class Program
         string name = PromptUserName();
         int num = PromptUserNumber();
         int year = PromptUserBirthYear();
-        int squarenum = SquareNumber(num);
-        DisplayResults(name, squarenum, year);        
+        int squareNum = SquareNumber(num);
+        DisplayResults(name, squareNum, year);        
     }
     static void DisplayWelcome()
         {
@@ -26,26 +26,26 @@ class Program
     {
         Console.Write("Please enter your favorite number: ");
         string input = Console.ReadLine();
-        int favnumber = int.Parse(input);
-        return favnumber;
+        int favNumber = int.Parse(input);
+        return favNumber;
     }
     static int PromptUserBirthYear()
     {
         Console.Write("Please enter your birth year: ");
         string input = Console.ReadLine();
-        int birthyear = int.Parse(input);
-        return birthyear;
+        int birthYear = int.Parse(input);
+        return birthYear;
     }
-    static int SquareNumber(int favnumber)
+    static int SquareNumber(int favNumber)
     {
-        int squarenum = favnumber * favnumber;
-        return squarenum;
+        int squareNum = favNumber * favNumber;
+        return squareNum;
     }
-    static void DisplayResults(string name, int squarenum, int birthyear)
+    static void DisplayResults(string name, int squareNum, int birthYear)
     {
         int currentYear = 2026;
-        Console.WriteLine($"{name}, The square of your number is {squarenum}");
-        int age = currentYear - birthyear;
+        Console.WriteLine($"{name}, The square of your number is {squareNum}");
+        int age = currentYear - birthYear;
         Console.WriteLine($"{name}, you will turn {age} this year.");
     }
 }
