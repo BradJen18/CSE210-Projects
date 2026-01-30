@@ -22,10 +22,8 @@ class Program
 
         Resume Resume1 = new Resume();
         Resume1._name = "Bradley Jensen";
-
         Resume1._jobs.Add(Job1);
         Resume1._jobs.Add(Job2);
-
         Resume1.DisplayResume();
     }
 }
