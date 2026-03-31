@@ -62,17 +62,20 @@ class Event
 
     public void Standard()
     {
-        Console.WriteLine($"{_Title}, {_Desc}, {_Date}, {_Time}");
+        Console.WriteLine("Standard: ");
+        Console.WriteLine($"'{_Title}', {_Desc}, {_Date}, {_Time}");
         Display();
         Console.WriteLine();
     }
     public virtual void Full() // Override in each Child class to match specifications
     {
+        Console.WriteLine("Full: ");
         Console.WriteLine($"{_Type}, {_Title}, {_Desc}, {_Date}, {_Time}, {address}");
         Console.WriteLine();
     }
     public void Short()
     {
+        Console.WriteLine("Short: ");
         Console.WriteLine($"{_Type}, {_Title}, {_Date}");
         Console.WriteLine();
     }

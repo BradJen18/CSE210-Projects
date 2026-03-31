@@ -11,8 +11,11 @@ class Outdoor : Event
     }
     public override void Full()
     {
-        Console.WriteLine($"{_Weather}, {GetType()}, {GetTitle()}, {GetDesc()}, {GetDate()}, {GetTime()}");
-        Display();   
+        Console.WriteLine("Full: ");
+        Console.WriteLine(Gettype());
+        Console.WriteLine($"Weather: {_Weather}");
+        Console.WriteLine($"'{GetTitle()}', {GetDesc()}, {GetDate()}, {GetTime()}");
+        Display();
         Console.WriteLine();
 
     }

@@ -20,7 +20,10 @@ class Lecture : Event
     }
     public override void Full()
     {
-        Console.WriteLine($"{_Speaker},{_Capacity},{GetType()}, {GetTitle()}, {GetDesc()}, {GetDate()}, {GetTime()}");
+        Console.WriteLine("Full: ");
+        Console.WriteLine(Gettype());
+        Console.WriteLine($"Speaker: {_Speaker}, Capacity: {_Capacity}");
+        Console.WriteLine($"'{GetTitle()}', {GetDesc()}, {GetDate()}, {GetTime()}");
         Display();
         Console.WriteLine();
     }

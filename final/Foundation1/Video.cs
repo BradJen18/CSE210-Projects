@@ -17,10 +17,12 @@ public void DisplayComments()
 
     public void DisplayVideo()
     {
+        Console.WriteLine("Video: ");
         Console.WriteLine($"'{_title}'");
         Console.WriteLine($"{_author} - {_length}");
         Console.WriteLine();
 
+        Console.WriteLine("Comments: ");
         DisplayComments();
     }
 
