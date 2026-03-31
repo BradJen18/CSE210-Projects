@@ -11,7 +11,7 @@ class Order
             int PPrice = p.TotalPrice();
             TPrice += PPrice;
         }
-        bool IsUSA = customer.InUSA(); // why no work?
+        bool IsUSA = customer.InUSA();
         if (IsUSA == true)
         {
             TPrice = TPrice + 5;

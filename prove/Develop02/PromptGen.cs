@@ -12,6 +12,6 @@ public class PromptGen
         Random random = new Random();
         int number = random.Next(5);
         string _prompt = _prompts[number];
-        return _prompt;
+        return _prompt; 
     }
 }
