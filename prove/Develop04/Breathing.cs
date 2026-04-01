@@ -24,14 +24,60 @@ class Breath : Activity
             
             Console.WriteLine();
             Console.Write($"Breath in... ");
-            Timer();
+            TimerIn();
             Console.WriteLine();
             Console.Write("Now breath out...");
-            Timer();
+            TimerOut();
             Console.WriteLine();
 
             currentTime = DateTime.Now;
         }
+    }
+    public void TimerIn()
+    {
+                Console.Write("[=    ]");
+                Thread.Sleep(1000); 
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[==   ]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[===  ]"); 
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[==== ]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[=====]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+    }
+    public void TimerOut()
+    {
+                Console.Write("[=====]");
+                Thread.Sleep(1000); 
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[==== ]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[===  ]"); 
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[==   ]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
+                Console.Write("[=    ]");
+                Thread.Sleep(1000);
+
+                Console.Write("\b \b\b \b\b \b\b \b\b \b\b \b\b \b");
     }
 
     public Breath()

@@ -24,6 +24,7 @@ class Reflect : Activity
         Console.WriteLine("Now ponder on each of the following questions as they relate to this experience.");
         Console.Write("You may begin in...");
         Timer();
+        Console.Clear();
 
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(time);  
@@ -31,12 +32,14 @@ class Reflect : Activity
         DateTime currentTime = DateTime.Now;
         while (currentTime < futureTime)
         {
-            
+            Console.Write($"> {PickQuestion()} ");
+            Spinner(5);
+            Console.WriteLine("");
             currentTime = DateTime.Now;
         }
     }
         
-    public List<string> _prompts =
+    private List<string> _prompts =
     [
         "Think of a time when you stood up for someone else.","Think of a time when you did something really difficult.","Think of a time when you helped someone in need.","Think of a time when you did something truly selfless."
     ];
@@ -46,6 +49,18 @@ class Reflect : Activity
         int number = random.Next(4);
         string _prompt = _prompts[number];
         return _prompt; 
+    }
+    private List<string> _questions =
+    [
+        "Why was this experience meaningful to you?", "Have you ever done anything like this before?","How did you get started?","How did you feel when it was complete?","What made this time different than other times when you were not as successful?",
+        "What is your favorite thing about this experience?","What could you learn from this experience that applies to other situations?","What did you learn about yourself through this experience?","How can you keep this experience in mind in the future?"
+    ];
+    public string PickQuestion()
+    {
+        Random random = new Random();
+        int number = random.Next(4);
+        string _question = _questions[number];
+        return _question; 
     }
 
     public Reflect()
