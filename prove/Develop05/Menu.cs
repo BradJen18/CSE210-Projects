@@ -6,7 +6,7 @@ class Menu
     {
         return _TotalPoint;
     } 
-    public void SetTotalPoints(double totalpoint)
+    public void SetTotalPoints(double totalpoint) // need to fix Load/Save feature, The double write goal create.
     {
         _TotalPoint = totalpoint;
     }
@@ -24,6 +24,7 @@ class Menu
                 if (choice1 == 1) // Simple goal
                     {
                         goal.Add(new SimpleGoal());
+                        // need to edit the goal.
                         choice = Choices();
                     }
                 else if (choice1 == 2) // Eternal goal
@@ -49,17 +50,42 @@ class Menu
                 DisplayGoals();
                 choice = Choices();
             }
-            else if (choice == 3) // Save goals
+            else if (choice == 3) // Save goals (how do I customize how it saves based on what goal it is?)
             {
-            
+                Console.WriteLine("What is the filename?");
+                string name = Console.ReadLine();
+                using (StreamWriter outputFile = new StreamWriter(name, true))
+                {
+                    outputFile.WriteLine(_TotalPoint);
+                    foreach (Goal g in goal)
+                    {   
+                        outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}");        
+                    }
+                }
+                choice = Choices();
             }
-            else if (choice == 4) // Load goals
+            else if (choice == 4) // Load goals (how do I ignore the first line of the text file?)
             {
-                
+                Console.WriteLine("What is the filename?");
+                string name = Console.ReadLine();
+                string [] lines = System.IO.File.ReadAllLines(name);
+                foreach (string line in lines)
+                {
+                    string [] parts = line.Split("~~");
+                    Goal newgoal = new Goal();
+                    newgoal.SetGoalName(parts[0]);
+                    newgoal.SetGoalDesc(parts[1]);
+                    double input = double.Parse(parts[2]);
+                    newgoal.SetGoalPoint(input);
+                    bool isComplete = bool.Parse(parts[3]);
+                    newgoal.SetIsComplete(isComplete);
+                    goal.Add(newgoal);
+                }
+                choice = Choices();
             }
             else if (choice == 5) // Record Event
             {
-                menu3(); //Still need to learn how to itterate between objects in a list. Also add points to total.
+                menu3();
                 choice = Choices();
             }
             else // Error message
@@ -105,14 +131,34 @@ class Menu
         DisplayGoals();
         Console.WriteLine("Which goal did you accomplish? ");
         string input = Console.ReadLine();
-        int choice = int.Parse(input);
-        Console.WriteLine("Congratulations! You've earned {} Points!"); // needs to call points earned.
+        int choice = int.Parse(input) - 1;
+        Goal g = goal[choice];
+        double points = g.RecordEntry();
+        _TotalPoint += points;
+        Console.WriteLine($"Congratulations! You've earned {points} Points!");
         return choice;
     }
-        public void DisplayGoals()
+
+    public void CreateGoal()
     {
+
+\
+        Console.Write("What is a short description of it? ");
+        string input2 = Console.ReadLine();
+        SetGoalDesc(input2);
+        Console.Write("What is the ammount of points associated with this goal? ");
+        string i3 = Console.ReadLine();
+        double input3 = double.Parse(i3);
+        SetGoalPoint(input3);
+        SetIsComplete(false);
+    }
+    public void DisplayGoals()
+    {
+        int list = 1;
         foreach (Goal i in goal)
         {
+            Console.Write($"{list}. ");
+            list += 1;
             i.DisplayGoal();
         }
     }

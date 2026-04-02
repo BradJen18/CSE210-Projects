@@ -1,13 +1,26 @@
+using System.ComponentModel;
+
 class SimpleGoal : Goal
 {
     public override double RecordEntry()
     {
+        SetIsComplete(true);
         return GetGoalPoint();
     }
 
     public SimpleGoal()
     {
-        CreateGoal();
+        SetGoalName("happy");
+        SetGoalDesc("be happy");
+        SetGoalPoint(50);
+        SetIsComplete(false);
+    }
+    public SimpleGoal(string name, string desc, double point, bool isComplete)
+    {
+        SetGoalName(name);
+        SetGoalDesc(desc);
+        SetGoalPoint(point);
+        SetIsComplete(isComplete);
     }
 
 }

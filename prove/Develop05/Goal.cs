@@ -69,8 +69,18 @@ class Goal
         SetIsComplete(true);
         return GetGoalPoint();
     }
-    public Goal()
+    public Goal() // The goal doubles becauase you make a new goal and it automatically fills out the cunstructor, then you ask it to also make a new goal. Tsy mandeha.
     {
-        CreateGoal();
+        _GoalName = "happy";
+        _GoalDesc = "be happy";
+        _GoalPoint = 50;
+        _IsComplete = false;
+    }
+    public Goal(string name, string desc, double point, bool isComplete)
+    {
+        _GoalName = name;
+        _GoalDesc = desc;
+        _GoalPoint = point;
+        _IsComplete = isComplete;
     }
 }
