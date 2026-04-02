@@ -14,6 +14,7 @@ class SimpleGoal : Goal
         SetGoalDesc("be happy");
         SetGoalPoint(50);
         SetIsComplete(false);
+        CreateGoal();
     }
     public SimpleGoal(string name, string desc, double point, bool isComplete)
     {

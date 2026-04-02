@@ -17,14 +17,13 @@ class Menu
         int choice = Choices();
         while (choice != 6)
         {
-            if (choice == 1) // Create new goal (When you make a new goal it makes you enter the goal twice, but only records the second one)
+            if (choice == 1) // Create new goal
             {   
                 int choice1 = Menu2();
 
                 if (choice1 == 1) // Simple goal
                     {
                         goal.Add(new SimpleGoal());
-                        // need to edit the goal.
                         choice = Choices();
                     }
                 else if (choice1 == 2) // Eternal goal
@@ -59,7 +58,19 @@ class Menu
                     outputFile.WriteLine(_TotalPoint);
                     foreach (Goal g in goal)
                     {   
-                        outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}");        
+                        outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}");                             
+                        // if (g.Getype() == 1) // simple
+                        // {       
+                        //     outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}");     
+                        // }
+                        // else if (g.Getype() == 2) // eternal
+                        // {
+                        //     outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}");             
+                        // }   
+                        // else if (g.Getype() ==3) // checklist
+                        // {
+                        //     outputFile.WriteLine($"{g.GetGoalName()}~~{g.GetGoalDesc()}~~{g.GetGoalPoint()}~~{g.GetIsComplete()}~~{g.Get}");                                 
+                        // }
                     }
                 }
                 choice = Choices();
@@ -139,19 +150,6 @@ class Menu
         return choice;
     }
 
-    public void CreateGoal()
-    {
-
-\
-        Console.Write("What is a short description of it? ");
-        string input2 = Console.ReadLine();
-        SetGoalDesc(input2);
-        Console.Write("What is the ammount of points associated with this goal? ");
-        string i3 = Console.ReadLine();
-        double input3 = double.Parse(i3);
-        SetGoalPoint(input3);
-        SetIsComplete(false);
-    }
     public void DisplayGoals()
     {
         int list = 1;

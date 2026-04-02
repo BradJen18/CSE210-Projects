@@ -1,0 +1,4 @@
+230
+good days~~they're good~~50~~True
+smile~~smile at someone. BE happy~~100~~False
+say hi to others~~hi~~20~~False

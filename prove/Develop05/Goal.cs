@@ -4,6 +4,7 @@ class Goal
     private string _GoalDesc;
     private double _GoalPoint;
     private bool _IsComplete;
+    private int _Type;
 
     public string GetGoalName()
     {
@@ -36,6 +37,14 @@ class Goal
     public void SetIsComplete(bool input)
     {
         _IsComplete = input;
+    }
+    public int Getype()
+    {
+        return _Type;
+    }
+    public void SetType(int type)
+    {
+        _Type = type;
     }
     public virtual void DisplayGoal()
     {
